@@ -1,6 +1,23 @@
 services:
-  - type: static_site
+  - type: web
     name: carbonitro
-    env: static
+    env: python
     branch: main
-    publishPath: /
+    plan: free
+
+    buildCommand: >
+      python -m pip install -r requirements.txt &&
+      python manage.py collectstatic --noinput &&
+      python manage.py migrate
+
+    startCommand: gunicorn carbonitro_project.wsgi:application --log-file -
+
+    envVars:
+      - key: DEBUG
+        value: "False"
+
+      - key: PYTHON_VERSION
+        value: "3.11"
+
+      - key: SECRET_KEY
+        generateValue: true
