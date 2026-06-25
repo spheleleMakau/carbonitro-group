@@ -1,0 +1,6 @@
+services:
+  - type: static_site
+    name: carbonitro
+    env: static
+    branch: main
+    publishPath: /
