@@ -10,7 +10,7 @@ except ImportError:
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-replace-this-with-a-secure-key")
-DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = os.getenv("DEBUG", "False") == "false"
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
