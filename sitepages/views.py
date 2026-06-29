@@ -9,7 +9,9 @@ def page_view(request):
         page = "About"
     elif path == "/services/":
         page = "Services"
-    else:
+    elif path == "/contact/":
         page = "Contact"
+    else:
+        page = "Page"
 
     return render(request, "page.html", {"page": page})

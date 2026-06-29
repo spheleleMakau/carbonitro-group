@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Carbon Nitrogen Group | Consulting, Engineering & Transformation{% endblock %}</title>
+    <meta name="description" content="Carbon Nitrogen Group delivers business improvement, asset optimisation, renewable energy, mining and engineering services with digital transformation leadership." />
+    <meta property="og:title" content="Carbon Nitrogen Group | Consulting, Engineering & Transformation" />
+    <meta property="og:description" content="Carbon Nitrogen Group delivers business improvement, asset optimisation, renewable energy, mining and engineering services with digital transformation leadership." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{% static 'images/og-default.png' %}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    {% block extra_css %}{% endblock %}
+  </head>
+  <body>
+    <div class="page-shell">
+      {% include 'includes/navbar.html' %}
+      <main class="page-main">
+        {% include 'includes/messages.html' %}
+        {% block content %}{% endblock %}
+      </main>
+      {% include 'includes/footer.html' %}
+    </div>
+    <script type="module" src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

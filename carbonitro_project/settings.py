@@ -10,7 +10,7 @@ except ImportError:
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-replace-this-with-a-secure-key")
-DEBUG = os.getenv("DEBUG", "False") == "false"
+DEBUG = True  # Enabled for local development troubleshooting. Set via env var in production.
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
@@ -20,6 +20,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "core",
+    "home",
+    "companies",
+    "services",
+    "projects",
+    "insights",
+    "contact",
     "sitepages",
 ]
 

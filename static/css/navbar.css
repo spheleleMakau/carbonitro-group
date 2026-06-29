@@ -1,0 +1,143 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.75rem 2.5rem;
+  background: rgba(7, 19, 31, 0.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.brand-group {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand-logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.brand-subtitle {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.22s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active,
+.site-nav a.cta-link {
+  color: var(--text);
+}
+
+.site-nav a.cta-link {
+  padding: 0.95rem 1.45rem;
+  background: rgba(122, 210, 159, 0.1);
+  border-radius: 999px;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-button {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .site-nav {
+    gap: 1.1rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav-toggle-button {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    width: 2rem;
+    cursor: pointer;
+  }
+
+  .nav-toggle-button span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    border-radius: 999px;
+    background: var(--text);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    width: min(100%, 340px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: rgba(7, 19, 31, 0.98);
+    border-radius: 24px;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(-12px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .site-nav a {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 18px;
+  }
+
+  .nav-toggle:checked + .nav-toggle-button + .site-nav {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-toggle-button {
+    z-index: 22;
+  }
+}

@@ -1,0 +1,24 @@
+@media (max-width: 640px) {
+  .site-header {
+    padding: 1.1rem 1rem;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .hero-section {
+    gap: 1.5rem;
+  }
+
+  .hero-panel-card,
+  .visual-card,
+  .stat-card,
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .page-main {
+    padding-bottom: 2rem;
+  }
+}

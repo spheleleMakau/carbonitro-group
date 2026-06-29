@@ -1,0 +1,25 @@
+<header class="site-header">
+  {% load static %}
+
+  <div class="brand-group">
+    <a class="brand-logo" href="{% url 'home' %}">
+      <img src="{% static 'img/logo.png' %}" alt="Carbon Nitrogen Group" class="brand-logo-img" />
+    </a>
+  </div>
+
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open navigation menu" />
+  <label for="nav-toggle" class="nav-toggle-button">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+    <a href="/about/" class="{% if request.path == '/about/' %}active{% endif %}">About</a>
+    <a href="#services">Services</a>
+    <a href="/projects/" class="{% if request.path == '/projects/' %}active{% endif %}">Projects</a>
+    <a href="/insights/" class="{% if request.path == '/insights/' %}active{% endif %}">Insights</a>
+    <a href="/contact/" class="cta-link">Contact</a>
+  </nav>
+</header>
