@@ -62,8 +62,8 @@ def page_view(request):
         page = "About"
         return render(request, "page.html", {"page": page})
 
-    if path == "/insights/":
-        return render(request, "insights.html")
+    if path == "/delivery-approach/":
+        return render(request, "delivery-approach.html")
 
     page = "Page"
     return render(request, "page.html", {"page": page})
