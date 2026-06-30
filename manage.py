@@ -6,6 +6,7 @@ import sys
 
 def main():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "carbonitro_project.settings")
+    os.environ.setdefault("DJANGO_RUNSERVER_HIDE_WARNING", "true")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

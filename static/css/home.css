@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1.3fr 0.9fr;
   gap: 3rem;
-  align-items: center;
+  align-items: flex-start;
   max-width: 1180px;
   margin: 0 auto;
   padding-top: 3rem;
@@ -367,7 +367,7 @@
 
 .hero-panel--clean {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   min-height: 360px;
 }

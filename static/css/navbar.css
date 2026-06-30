@@ -79,8 +79,22 @@
 
 @media (max-width: 720px) {
   .site-header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9999;
     flex-wrap: wrap;
     justify-content: space-between;
+    background: rgba(7, 19, 31, 0.98);
+    backdrop-filter: blur(18px);
+  }
+
+  .page-main {
+    margin-top: 6.5rem;
+    position: relative;
+    z-index: 1;
   }
 
   .nav-toggle {

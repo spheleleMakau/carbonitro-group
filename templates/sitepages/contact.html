@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact — Carbon Nitrogen Group{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+  <div class="section-intro">
+    <span class="eyebrow">Contact</span>
+    <h2>Book a consultation and tell us how we can help.</h2>
+    <p>Complete the form below and we will send your request to the team. If you select no service, please describe your needs in the message field.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-form-panel">
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form.name.label_tag }}
+          {{ form.name }}
+          {{ form.name.errors }}
+        </div>
+        <div class="form-group">
+          {{ form.email.label_tag }}
+          {{ form.email }}
+          {{ form.email.errors }}
+        </div>
+        <div class="form-group">
+          {{ form.phone.label_tag }}
+          {{ form.phone }}
+          {{ form.phone.errors }}
+        </div>
+        <div class="form-group">
+          {{ form.services.label_tag }}
+          {{ form.services }}
+          {{ form.services.errors }}
+        </div>
+        <div class="form-group">
+          {{ form.message.label_tag }}
+          {{ form.message }}
+          {{ form.message.errors }}
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="button button-primary">Send request</button>
+        </div>
+      </form>
+    </div>
+
+    <aside class="contact-info-panel">
+      <h3>Contact details</h3>
+      <p><a href="mailto:itumelengrapoo@gmail.com">itumelengrapoo@gmail.com</a></p>
+      <p><a href="mailto:Jacycosta.mre@gmail.com">Jacycosta.mre@gmail.com</a></p>
+      <p>+27 72 350 5208</p>
+      <p>+27 65 544 2058</p>
+      <p>76 Centex Kathrine Street</p>
+      <p>Sandton</p>
+    </aside>
+  </div>
+</section>
+{% endblock %}
