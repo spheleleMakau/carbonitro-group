@@ -1,13 +1,77 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Carbon Nitrogen Group | {{ page }}{% endblock %}
 
 {% block content %}
-  <section class="page-intro">
-    <div class="page-intro-panel">
-      <span class="eyebrow">Corporate consulting</span>
-      <h1>{{ page }}</h1>
-      <p>{{ page }} content is being prepared with premium corporate design and strategic messaging tailored for consulting clients.</p>
-    </div>
-  </section>
+  {% if page == 'About' %}
+    <section class="about-page">
+      <div class="about-hero">
+        <div class="about-hero-card">
+          <span class="eyebrow">About Carbon Nitrogen Group</span>
+          <h1>Engineering capability. Strategic insight. Measurable transformation.</h1>
+          <p>Carbon Nitrogen Group is a multidisciplinary engineering, consulting and transformation partner serving mining, energy, infrastructure, government and industrial organisations with practical solutions that strengthen performance, resilience and growth.</p>
+          <p>We combine technical excellence with operational strategy, environmental responsibility and digital innovation to help clients navigate complexity, reduce risk and deliver sustainable impact.</p>
+        </div>
+
+        <div class="about-hero-image">
+          <img src="{% static 'img/ChatGPT Image Jun 30, 2026, 08_51_05 PM.png' %}" alt="Carbon Nitrogen Group consulting and engineering environment" />
+        </div>
+      </div>
+
+      <div class="about-section about-grid about-grid--two">
+        <article class="about-card">
+          <h2>Vision</h2>
+          <p>Our vision is to be a trusted partner in operational strategy, engineering excellence and innovation—building adaptive capacity that enables sustainable business transformation across mining, energy, infrastructure and industrial sectors.</p>
+        </article>
+
+        <article class="about-card">
+          <h2>Mission</h2>
+          <p>Carbon Nitrogen Group delivers a human-centred and performance-driven approach to consulting and engineering, helping organisations improve productivity, enable innovation and create measurable impact.</p>
+        </article>
+      </div>
+
+      <div class="about-section about-grid about-grid--three">
+        <article class="about-card">
+          <h2>What We Do</h2>
+          <ul>
+            <li>Mining and industrial engineering solutions</li>
+            <li>Renewable energy and infrastructure systems</li>
+            <li>Environmental monitoring and water management services</li>
+            <li>Strategy, process optimisation and operational transformation</li>
+            <li>Data-driven analytics and performance improvement</li>
+          </ul>
+        </article>
+
+        <article class="about-card">
+          <h2>Fundamental Values</h2>
+          <ul>
+            <li>Client satisfaction and long-term partnership</li>
+            <li>Excellence in service delivery and technical quality</li>
+            <li>Timely and reliable execution of all projects</li>
+            <li>Employee development and professional growth</li>
+            <li>Holistic socio-economic development</li>
+          </ul>
+        </article>
+
+        <article class="about-card">
+          <h2>Our Responsibility</h2>
+          <ul>
+            <li>Support for SMMEs and emerging contractors</li>
+            <li>Job creation through labour-intensive project delivery</li>
+            <li>Gender-inclusive participation in infrastructure and engineering projects</li>
+            <li>Ethical, environmentally responsible and socially conscious operations</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  {% else %}
+    <section class="page-intro">
+      <div class="page-intro-panel">
+        <span class="eyebrow">Corporate consulting</span>
+        <h1>{{ page }}</h1>
+        <p>{{ page }} content is being prepared with premium corporate design and strategic messaging tailored for consulting clients.</p>
+      </div>
+    </section>
+  {% endif %}
 {% endblock %}
