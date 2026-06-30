@@ -18,9 +18,10 @@
 }
 
 .footer-logo {
-  width: 40px;
-  height: auto;
+  height: 150px;
+  width: auto;
   display: block;
+  object-fit: contain;
 }
 
 .footer-grid ul li {
