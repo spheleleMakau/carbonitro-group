@@ -56,13 +56,10 @@
 }
 
 .service-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.75rem;
-  max-width: 1180px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
-
 .service-card {
   padding: 2rem;
   border-radius: 32px;
@@ -740,15 +737,6 @@
     gap: 2.5rem;
   }
 
-  .service-grid,
-  .company-grid,
-  .stats-grid,
-  .feature-panels,
-  .impact-items,
-  .expertise-grid {
-    grid-template-columns: 1fr;
-  }
-
   .cta-strip {
     flex-direction: column;
     align-items: flex-start;
@@ -761,6 +749,15 @@
 }
 
 @media (max-width: 900px) {
+  .service-grid,
+  .company-grid,
+  .stats-grid,
+  .feature-panels,
+  .impact-items,
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero-copy {
     max-width: 100%;
   }
@@ -827,16 +824,13 @@
     text-align: left;
   }
 
-  .service-grid,
-  .company-grid,
-  .impact-items,
-  .expertise-grid,
-  .stats-grid,
-  .feature-panels {
+.company-grid,
+.stats-grid,
+.feature-panels,
+.impact-items,
+.expertise-grid {
     grid-template-columns: 1fr;
-  }
 }
-
 @media (max-width: 560px) {
   section {
     padding: 32px 16px;
