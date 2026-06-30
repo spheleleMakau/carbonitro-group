@@ -60,7 +60,10 @@ def page_view(request):
 
     if path == "/about/":
         page = "About"
-    else:
-        page = "Page"
+        return render(request, "page.html", {"page": page})
 
+    if path == "/insights/":
+        return render(request, "insights.html")
+
+    page = "Page"
     return render(request, "page.html", {"page": page})
