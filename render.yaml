@@ -8,13 +8,19 @@ services:
     buildCommand: >
       python -m pip install -r requirements.txt &&
       python manage.py collectstatic --noinput &&
-      python manage.py migrate
+      python manage.py migrate --noinput
 
-    startCommand: gunicorn carbonitro_project.wsgi:application --log-file -
+    startCommand: gunicorn carbonitro_project.wsgi:application --bind 0.0.0.0:$PORT --log-file -
 
     envVars:
       - key: DEBUG
         value: "False"
+
+      - key: ALLOWED_HOSTS
+        value: "localhost,127.0.0.1,carbonitro.onrender.com"
+
+      - key: CSRF_TRUSTED_ORIGINS
+        value: "https://carbonitro.onrender.com"
 
       - key: PYTHON_VERSION
         value: "3.11"
