@@ -1,5 +1,3 @@
-import re
-
 from django import forms
 
 SERVICE_CHOICES = [
@@ -55,25 +53,12 @@ class ContactForm(forms.Form):
         }),
     )
 
-    def clean_phone(self):
-        phone = self.cleaned_data.get("phone", "")
-        if not phone:
-            return phone
-
-        normalized = re.sub(r"\s+", "", phone)
-        if not re.fullmatch(r"\+\d{7,15}", normalized):
-            raise forms.ValidationError(
-                "Please enter a valid international phone number, for example +27 72 350 5208."
-            )
-
-        return phone
-
     def clean(self):
         cleaned_data = super().clean()
         services = cleaned_data.get("services")
-        message = cleaned_data.get("message", "")
+        message = cleaned_data.get("message")
 
-        if not services and not message.strip():
+        if not services and not message:
             raise forms.ValidationError(
                 "Please select at least one service or tell us what you need in the message."
             )

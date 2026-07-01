@@ -27,27 +27,3 @@ services:
 
       - key: SECRET_KEY
         generateValue: true
-
-      - key: EMAIL_BACKEND
-        value: "django.core.mail.backends.smtp.EmailBackend"
-
-      - key: EMAIL_HOST
-        value: "smtp.gmail.com"
-
-      - key: EMAIL_PORT
-        value: "587"
-
-      - key: EMAIL_USE_TLS
-        value: "True"
-
-      - key: EMAIL_USE_SSL
-        value: "False"
-
-      - key: EMAIL_HOST_USER
-        value: "missmakau9@gmail.com"
-
-      - key: EMAIL_HOST_PASSWORD
-        value: "your-gmail-app-password"
-
-      - key: DEFAULT_FROM_EMAIL
-        value: "missmakau9@gmail.com"

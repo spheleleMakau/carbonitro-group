@@ -1,11 +1,7 @@
-import smtplib
-
 from django.conf import settings
 from django.contrib import messages
-from django.core.mail import BadHeaderError, EmailMessage
+from django.core.mail import EmailMessage
 from django.shortcuts import redirect, render
-
-RECIPIENT_EMAIL = "missmakau9@gmail.com"
 
 from .forms import ContactForm, SERVICE_CHOICES
 
@@ -40,35 +36,22 @@ def page_view(request):
                     f"Message:\n{message_text or 'No message provided.'}\n"
                 )
                 recipient_list = [
-                    RECIPIENT_EMAIL,
+                    "missmakau9@gmail.com",
                 ]
 
-                try:
-                    email_message = EmailMessage(
-                        subject=subject,
-                        body=body,
-                        from_email=settings.DEFAULT_FROM_EMAIL,
-                        to=recipient_list,
-                        reply_to=[email],
-                    )
-                    email_message.send(fail_silently=False)
-                except (BadHeaderError, smtplib.SMTPException, ConnectionError) as exc:
-                    messages.error(
-                        request,
-                        f"Your message could not be sent right now. Please try again later. Error: {exc}"
-                    )
-                    return render(request, "sitepages/contact.html", {"form": form})
+                email_message = EmailMessage(
+                    subject=subject,
+                    body=body,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    to=recipient_list,
+                    reply_to=[email],
+                )
+                email_message.send(fail_silently=False)
 
-                if settings.EMAIL_BACKEND == "django.core.mail.backends.console.EmailBackend":
-                    messages.success(
-                        request,
-                        "Thanks for reaching out. Your request was prepared for delivery and printed to the local console for testing."
-                    )
-                else:
-                    messages.success(
-                        request,
-                        "Thanks for reaching out. Your request has been sent to the team."
-                    )
+                messages.success(
+                    request,
+                    "Thanks for reaching out. Your request has been sent to the team."
+                )
                 return redirect("/contact/")
         else:
             form = ContactForm()
