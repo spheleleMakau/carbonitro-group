@@ -40,11 +40,14 @@ services:
       - key: EMAIL_USE_TLS
         value: "True"
 
+      - key: EMAIL_USE_SSL
+        value: "False"
+
       - key: EMAIL_HOST_USER
         value: "missmakau9@gmail.com"
 
       - key: EMAIL_HOST_PASSWORD
-        value: ""
+        value: "your-gmail-app-password"
 
       - key: DEFAULT_FROM_EMAIL
         value: "missmakau9@gmail.com"

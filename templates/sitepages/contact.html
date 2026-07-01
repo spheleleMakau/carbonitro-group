@@ -12,7 +12,7 @@
 
   <div class="contact-grid">
     <div class="contact-form-panel">
-      <form method="post" novalidate>
+      <form method="post" novalidate id="contact-form">
         {% csrf_token %}
         <div class="form-group">
           {{ form.name.label_tag }}
@@ -46,4 +46,20 @@
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const invalidField = form.querySelector('.form-group .errorlist, .form-group .invalid-feedback');
+    if (invalidField) {
+      const field = invalidField.closest('.form-group').querySelector('input, textarea, select');
+      if (field) {
+        field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        field.focus({ preventScroll: true });
+      }
+    }
+  });
+</script>
 {% endblock %}

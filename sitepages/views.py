@@ -1,6 +1,8 @@
+import smtplib
+
 from django.conf import settings
 from django.contrib import messages
-from django.core.mail import EmailMessage
+from django.core.mail import BadHeaderError, EmailMessage
 from django.shortcuts import redirect, render
 
 RECIPIENT_EMAIL = "missmakau9@gmail.com"
@@ -41,14 +43,21 @@ def page_view(request):
                     RECIPIENT_EMAIL,
                 ]
 
-                email_message = EmailMessage(
-                    subject=subject,
-                    body=body,
-                    from_email=settings.DEFAULT_FROM_EMAIL,
-                    to=recipient_list,
-                    reply_to=[email],
-                )
-                email_message.send(fail_silently=False)
+                try:
+                    email_message = EmailMessage(
+                        subject=subject,
+                        body=body,
+                        from_email=settings.DEFAULT_FROM_EMAIL,
+                        to=recipient_list,
+                        reply_to=[email],
+                    )
+                    email_message.send(fail_silently=False)
+                except (BadHeaderError, smtplib.SMTPException, ConnectionError) as exc:
+                    messages.error(
+                        request,
+                        f"Your message could not be sent right now. Please try again later. Error: {exc}"
+                    )
+                    return render(request, "sitepages/contact.html", {"form": form})
 
                 if settings.EMAIL_BACKEND == "django.core.mail.backends.console.EmailBackend":
                     messages.success(
