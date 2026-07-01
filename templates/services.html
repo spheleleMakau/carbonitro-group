@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Carbon Nitrogen Group | Services{% endblock %}
 
 {% block content %}
@@ -16,6 +18,10 @@
       <div class="service-card-top">
         <h3>Renewable Energy</h3>
       </div>
+      <div class="service-card-images">
+        <img src="{% static 'img/renewable1.png' %}" alt="Solar panel installation" class="service-image" />
+        <img src="{% static 'img/renewable2.png' %}" alt="Renewable energy solutions" class="service-image" />
+      </div>
       <ul>
         <li>Solar panels supply</li>
         <li>Solar panels installation</li>
@@ -28,33 +34,51 @@
       <div class="service-card-top">
         <h3>Geology Services</h3>
       </div>
-      <ul>
-        <li>Logging</li>
-        <li>Drilling</li>
-        <li>Sampling</li>
-      </ul>
+      <div class="service-card-layout">
+        <div class="service-images-stack">
+          <img src="{% static 'img/geo1.png' %}" alt="Geological logging and analysis" class="service-image-full" />
+          <img src="{% static 'img/geo2.png' %}" alt="Drilling and sampling operations" class="service-image-full" />
+        </div>
+        <ul>
+          <li>Logging</li>
+          <li>Drilling</li>
+          <li>Sampling</li>
+        </ul>
+      </div>
     </article>
 
-    <article class="service-card service-card--blue">
+    <article class="service-card service-card--blue service-card--side-always">
       <div class="service-card-top">
         <h3>Mining Services</h3>
       </div>
-      <ul>
-        <li>Drill & blast</li>
-        <li>Support</li>
-        <li>Cleaning of ore</li>
-      </ul>
+      <div class="service-card-layout">
+        <div class="service-images-stack">
+          <img src="{% static 'img/mining1.png' %}" alt="Mining operations and drill blasting" class="service-image-full" />
+          <img src="{% static 'img/mining2.png' %}" alt="Ore extraction and support systems" class="service-image-full" />
+        </div>
+        <ul>
+          <li>Drill & blast</li>
+          <li>Support</li>
+          <li>Cleaning of ore</li>
+        </ul>
+      </div>
     </article>
 
     <article class="service-card service-card--green">
       <div class="service-card-top">
         <h3>Engineering Services</h3>
       </div>
-      <ul>
-        <li>Conveyor belts supply</li>
-        <li>Conveyor components supply</li>
-        <li>Conveyor belts contraction</li>
-      </ul>
+      <div class="service-card-layout">
+        <div class="service-images-stack">
+          <img src="{% static 'img/eng1.png' %}" alt="Engineering solutions and conveyor systems" class="service-image-full" />
+          <img src="{% static 'img/eng2.png' %}" alt="Engineering design and installation" class="service-image-full" />
+        </div>
+        <ul>
+          <li>Conveyor belts supply</li>
+          <li>Conveyor components supply</li>
+          <li>Conveyor belts contraction</li>
+        </ul>
+      </div>
     </article>
 
     <div class="services-copy">
@@ -65,6 +89,10 @@ making and facilitate change leadership for innovation management and digital tr
     <article class="service-card service-card--amber">
       <div class="service-card-top">
         <h3>Strategy Consulting</h3>
+      </div>
+      <div class="service-card-images">
+        <img src="{% static 'img/stra1.png' %}" alt="Strategy analysis and consulting" class="service-image" />
+        <img src="{% static 'img/stra2.png' %}" alt="Strategic planning and facilitation" class="service-image" />
       </div>
       <ul>
         <li>Strategy analysis</li>
