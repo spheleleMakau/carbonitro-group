@@ -36,7 +36,7 @@ def page_view(request):
                     f"Message:\n{message_text or 'No message provided.'}\n"
                 )
                 recipient_list = [
-                    "missmakau9@gmail.com",
+                    "info@carbonitrogroup.com",
                 ]
 
                 email_message = EmailMessage(
