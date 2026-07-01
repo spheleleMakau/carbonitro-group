@@ -5,9 +5,9 @@
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1.35fr 0.85fr;
-  gap: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .contact-form-panel,
