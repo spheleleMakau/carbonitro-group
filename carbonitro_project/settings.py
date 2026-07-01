@@ -54,7 +54,6 @@ INSTALLED_APPS = [
     "home",
     "companies",
     "services",
-    "projects",
     "insights",
     "contact",
     "sitepages",

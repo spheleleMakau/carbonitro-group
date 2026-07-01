@@ -8,5 +8,4 @@ urlpatterns = [
     path("", include("home.urls")),
     path("", include("sitepages.urls")),
     path("companies/", RedirectView.as_view(url="/", permanent=False)),
-    path("projects/", include("projects.urls")),
 ]

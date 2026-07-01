@@ -1088,14 +1088,6 @@
   .prelude-copy {
     text-align: left;
   }
-}}}
-
-.company-grid,
-.stats-grid,
-.feature-panels,
-.impact-items,
-.expertise-grid {
-    grid-template-columns: 1fr;
 }
 
 @media (max-width: 560px) {
