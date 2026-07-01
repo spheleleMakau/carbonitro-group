@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.shortcuts import redirect, render
 
+RECIPIENT_EMAIL = "missmakau9@gmail.com"
+
 from .forms import ContactForm, SERVICE_CHOICES
 
 
@@ -36,7 +38,7 @@ def page_view(request):
                     f"Message:\n{message_text or 'No message provided.'}\n"
                 )
                 recipient_list = [
-                    "missmakau9@gmail.com",
+                    RECIPIENT_EMAIL,
                 ]
 
                 email_message = EmailMessage(
@@ -48,10 +50,16 @@ def page_view(request):
                 )
                 email_message.send(fail_silently=False)
 
-                messages.success(
-                    request,
-                    "Thanks for reaching out. Your request has been sent to the team."
-                )
+                if settings.EMAIL_BACKEND == "django.core.mail.backends.console.EmailBackend":
+                    messages.success(
+                        request,
+                        "Thanks for reaching out. Your request was prepared for delivery and printed to the local console for testing."
+                    )
+                else:
+                    messages.success(
+                        request,
+                        "Thanks for reaching out. Your request has been sent to the team."
+                    )
                 return redirect("/contact/")
         else:
             form = ContactForm()
